@@ -12,20 +12,6 @@ let candidateName = "";
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
-<<<<<<< HEAD
-
-
-/*if(question === correctAnswer){
-  console.log("OMG, same! That's the right answer!")
-} else if(question === candidateAnswer){
-  console.log("Wrong! But she was my second choice!");
-} else {
-  console.log("Wrong answer, but still a great choice!");
-}*/
-  
-
-=======
->>>>>>> 5a0a213 (Part 2 Complete)
 
 
 //TODO: Variables for Part 2
@@ -49,34 +35,60 @@ let candidateAnswers = [];
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("Candidate Name: ");
-<<<<<<< HEAD
-}
-=======
 } 
->>>>>>> 5a0a213 (Part 2 Complete)
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  candidateAnswer = input.question(question);
-<<<<<<< HEAD
+  //candidateAnswer = input.question(question);
+ // }
+ 
+// candidateAnswers = input.question(questions);
+ /*for (let index = 0; index < questions; index++){
+  for (let indexj = 0; indexj < correctAnswers.length; indexj++){
+  
+  }
+
+  }
+ }    */
+
+for (let index = 0; index < questions.length; index++){
+  candidateAnswer = input.question(questions[index]);
+  candidateAnswers.push(candidateAnswer)
+}
 
 }
 
-=======
-  }  
->>>>>>> 5a0a213 (Part 2 Complete)
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if(correctAnswer === candidateAnswer){
-  console.log("That's the right answer!");
+
+  let numAnswersCorrect = 0;
+
+for (let index = 0; index < candidateAnswers.length; index++){
+  if (correctAnswers[index].toUpperCase() == candidateAnswers[index].toUpperCase()){
+  console.log(`That's correct!`);
+  numAnswersCorrect += 1
 } else {
-  console.log("Wrong answer!");
+ console.log(`Wrong! You answered ${candidateAnswers[index]}, the correct answers were ${correctAnswers[index]}.`);
+}
 }
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade = (((numAnswersCorrect)/5)*100);  //TODO 3.2 use this variable to calculate the candidates score.
+  
+  if (grade === 0){
+     console.log("0 correct, try again");
+    } else if (grade === 100){
+      console.log("100% correct, good job!");
+    } else if (grade === 20) {
+      console.log("20%, one answer correct");
+    } else if (grade === 40) {
+      console.log("40%, two answers right!");
+    } else if (grade === 60) {
+      console.log("60%, three answers right!");
+    } else if (grade === 80) {
+      console.log("80%, four out of five!")
+    } else {}
+  
 
   return grade;
 }
